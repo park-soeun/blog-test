@@ -1,0 +1,109 @@
+---
+title: "Palmer Penguins 데이터 분석"
+author: "3조: 박소은, 박수현, 박재원"
+date: 2025/03/05
+format: html
+jupyter: python3
+image: "ThreePenguinSpecies.png"
+
+---
+
+Palmer Penguins 데이터셋을 분석하여 **종별 개체수, 서식지 분포, 성비, 주요 신체 특성의 평균값**을 알아보았습니다.
+
+## 0. 데이터 로드
+
+palmerpenguins 라이브러리를 이용하여 penguins 데이터를 불러왔습니다.
+
+약 344개의 펭귄 데이터가 존재합니다.
+
+```{python}
+import pandas as pd
+from palmerpenguins import load_penguins
+
+# 데이터 로드
+penguins = load_penguins()
+penguins.tail()
+```
+
+## 1. 종별 개체수 분석
+
+### (1) 코드
+
+```{python}
+species_info = pd.DataFrame(penguins.groupby(by='species').size().reset_index(name='species_count'))
+species_info.style.hide(axis="index")
+```
+
+### (2) 결과
+
+종별 개체수는 다음과 같습니다.
+
+-   Adelie: 152마리
+
+-   Chinstrap: 68마리
+
+-   Gentoo: 124마리
+
+## 2. 서식지 분포
+
+### (1) 코드
+
+```{python}
+island_info = penguins.groupby(by=['species', 'island']).size().reset_index(name='species_island_count')
+island_info.style.hide(axis="index")
+```
+
+### (2) 결과
+
+서식지는 크게 Biscoe, Dream, Torgersen으로 나뉩니다.
+
+-   Adelie: Biscoe, Dream, Torgersen에 고르게 분포
+
+-   Chinstrap: 주로 Dream에 분포
+
+-   Gentoo: 주로 Biscoe에 분포
+
+## 3. 조사된 펭귄들의 성비 분석
+
+### (1) 코드
+
+```{python}
+sex_info = penguins.groupby(by=['species', 'sex']).size().reset_index(name='species_sex_count')
+sex_info.style.hide(axis="index")
+```
+
+### (2) 결과
+
+-   Adelie: female, male 각각 73마리
+
+-   Chinstrap: female 58마리, male 61마리
+
+-   Gentoo: female, male 각각 34마리
+
+## 4. 신체 특성 평균값 분석
+
+### (1) 코드
+
+```{python}
+mean_info = penguins.groupby(by='species').mean(numeric_only=True)
+del mean_info['year']
+mean_info.style.format("{:.2f}")
+```
+
+### (2) 결과
+
+-   부리의 길이(bill_length): Chinstrap이 가장 길다.
+
+    -   Chinstrap \> Gentoo \> Adelie
+
+-   부리의 깊이(bill_depth): Chinstrap이 가장 깊다.
+
+    -   Gentoo \> Chinstrap \> Adelie
+
+-   플리퍼(날개)의 길이(flipper_length): Gentoo가 가장 길다.
+
+    -   Gentoo \> Chinstrap \> Adelie
+
+-   무게(body_mass): Gentoo가 가장 무겁다.
+
+    -   Gentoo \> Chinstrap \> Adelie

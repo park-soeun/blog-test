@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "blog-test",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 6, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 3, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 6, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nPalmer Penguins 데이터 분석\n\n\n\n\n\n\n\n\n\n\n\nMar 5, 2025\n\n\n3조: 박소은, 박수현, 박재원\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 3, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -26,5 +26,47 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "",
+    "text": "Palmer Penguins 데이터셋을 분석하여 종별 개체수, 서식지 분포, 성비, 주요 신체 특성의 평균값을 알아보았습니다."
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html#데이터-로드",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html#데이터-로드",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "0. 데이터 로드",
+    "text": "0. 데이터 로드\npalmerpenguins 라이브러리를 이용하여 penguins 데이터를 불러왔습니다.\n약 344개의 펭귄 데이터가 존재합니다.\n\nimport pandas as pd\nfrom palmerpenguins import load_penguins\n\n# 데이터 로드\npenguins = load_penguins()\npenguins.tail()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n340\nChinstrap\nDream\n43.5\n18.1\n202.0\n3400.0\nfemale\n2009\n\n\n341\nChinstrap\nDream\n49.6\n18.2\n193.0\n3775.0\nmale\n2009\n\n\n342\nChinstrap\nDream\n50.8\n19.0\n210.0\n4100.0\nmale\n2009\n\n\n343\nChinstrap\nDream\n50.2\n18.7\n198.0\n3775.0\nfemale\n2009"
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html#종별-개체수-분석",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html#종별-개체수-분석",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "1. 종별 개체수 분석",
+    "text": "1. 종별 개체수 분석\n\n(1) 코드\n\nspecies_info = pd.DataFrame(penguins.groupby(by='species').size().reset_index(name='species_count'))\nspecies_info.style.hide(axis=\"index\")\n\n\n\n\n\n\nspecies\nspecies_count\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\n\n\n\n\n\n(2) 결과\n종별 개체수는 다음과 같습니다.\n\nAdelie: 152마리\nChinstrap: 68마리\nGentoo: 124마리"
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html#서식지-분포",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html#서식지-분포",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "2. 서식지 분포",
+    "text": "2. 서식지 분포\n\n(1) 코드\n\nisland_info = penguins.groupby(by=['species', 'island']).size().reset_index(name='species_island_count')\nisland_info.style.hide(axis=\"index\")\n\n\n\n\n\n\nspecies\nisland\nspecies_island_count\n\n\n\n\nAdelie\nBiscoe\n44\n\n\nAdelie\nDream\n56\n\n\nAdelie\nTorgersen\n52\n\n\nChinstrap\nDream\n68\n\n\nGentoo\nBiscoe\n124\n\n\n\n\n\n\n\n(2) 결과\n서식지는 크게 Biscoe, Dream, Torgersen으로 나뉩니다.\n\nAdelie: Biscoe, Dream, Torgersen에 고르게 분포\nChinstrap: 주로 Dream에 분포\nGentoo: 주로 Biscoe에 분포"
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html#조사된-펭귄들의-성비-분석",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html#조사된-펭귄들의-성비-분석",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "3. 조사된 펭귄들의 성비 분석",
+    "text": "3. 조사된 펭귄들의 성비 분석\n\n(1) 코드\n\nsex_info = penguins.groupby(by=['species', 'sex']).size().reset_index(name='species_sex_count')\nsex_info.style.hide(axis=\"index\")\n\n\n\n\n\n\nspecies\nsex\nspecies_sex_count\n\n\n\n\nAdelie\nfemale\n73\n\n\nAdelie\nmale\n73\n\n\nChinstrap\nfemale\n34\n\n\nChinstrap\nmale\n34\n\n\nGentoo\nfemale\n58\n\n\nGentoo\nmale\n61\n\n\n\n\n\n\n\n(2) 결과\n\nAdelie: female, male 각각 73마리\nChinstrap: female 58마리, male 61마리\nGentoo: female, male 각각 34마리"
+  },
+  {
+    "objectID": "posts/Palmer-Penguins/quarto-palmer.html#신체-특성-평균값-분석",
+    "href": "posts/Palmer-Penguins/quarto-palmer.html#신체-특성-평균값-분석",
+    "title": "Palmer Penguins 데이터 분석",
+    "section": "4. 신체 특성 평균값 분석",
+    "text": "4. 신체 특성 평균값 분석\n\n(1) 코드\n\nmean_info = penguins.groupby(by='species').mean(numeric_only=True)\ndel mean_info['year']\nmean_info.style.format(\"{:.2f}\")\n\n\n\n\n\n\n \nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\nspecies\n \n \n \n \n\n\n\n\nAdelie\n38.79\n18.35\n189.95\n3700.66\n\n\nChinstrap\n48.83\n18.42\n195.82\n3733.09\n\n\nGentoo\n47.50\n14.98\n217.19\n5076.02\n\n\n\n\n\n\n\n(2) 결과\n\n부리의 길이(bill_length): Chinstrap이 가장 길다.\n\nChinstrap &gt; Gentoo &gt; Adelie\n\n부리의 깊이(bill_depth): Chinstrap이 가장 깊다.\n\nGentoo &gt; Chinstrap &gt; Adelie\n\n플리퍼(날개)의 길이(flipper_length): Gentoo가 가장 길다.\n\nGentoo &gt; Chinstrap &gt; Adelie\n\n무게(body_mass): Gentoo가 가장 무겁다.\n\nGentoo &gt; Chinstrap &gt; Adelie"
   }
 ]

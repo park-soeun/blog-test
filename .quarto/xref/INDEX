@@ -10,5 +10,8 @@
   },
   "posts/welcome/index.qmd": {
     "index.html": "8f072f46"
+  },
+  "posts/Palmer-Penguins/quarto-palmer.qmd": {
+    "quarto-palmer.html": "b7df21c3"
   }
 }
