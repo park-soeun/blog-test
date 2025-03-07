@@ -1,12 +1,14 @@
 ---
 title: "Palmer Penguins 데이터 분석"
 author: "3조: 박소은, 박수현, 박재원"
-date: 2025/03/05
+date: 2025/03/07
 format: html
 jupyter: python3
 image: "ThreePenguinSpecies.png"
+categories: [analysis]
 
 ---
+![](ThreePenguinSpecies.png)
 
 Palmer Penguins 데이터셋을 분석하여 **종별 개체수, 서식지 분포, 성비, 주요 신체 특성의 평균값**을 알아보았습니다.
 
