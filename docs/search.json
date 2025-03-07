@@ -16,9 +16,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "So-Eun Park",
     "section": "",
-    "text": "About this blog"
+    "text": "하이룽 :&gt;"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -68,5 +68,12 @@
     "title": "Palmer Penguins 데이터 분석",
     "section": "4. 신체 특성 평균값 분석",
     "text": "4. 신체 특성 평균값 분석\n\n(1) 코드\n\nmean_info = penguins.groupby(by='species').mean(numeric_only=True)\ndel mean_info['year']\nmean_info.style.format(\"{:.2f}\")\n\n\n\n\n\n\n \nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\nspecies\n \n \n \n \n\n\n\n\nAdelie\n38.79\n18.35\n189.95\n3700.66\n\n\nChinstrap\n48.83\n18.42\n195.82\n3733.09\n\n\nGentoo\n47.50\n14.98\n217.19\n5076.02\n\n\n\n\n\n\n\n(2) 결과\n\n부리의 길이(bill_length): Chinstrap이 가장 길다.\n\nChinstrap &gt; Gentoo &gt; Adelie\n\n부리의 깊이(bill_depth): Chinstrap이 가장 깊다.\n\nGentoo &gt; Chinstrap &gt; Adelie\n\n플리퍼(날개)의 길이(flipper_length): Gentoo가 가장 길다.\n\nGentoo &gt; Chinstrap &gt; Adelie\n\n무게(body_mass): Gentoo가 가장 무겁다.\n\nGentoo &gt; Chinstrap &gt; Adelie"
+  },
+  {
+    "objectID": "about.html#so-eun-park",
+    "href": "about.html#so-eun-park",
+    "title": "About",
+    "section": "",
+    "text": "하이룽 :&gt;"
   }
 ]
